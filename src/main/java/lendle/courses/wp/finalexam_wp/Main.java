@@ -5,9 +5,16 @@
  */
 package lendle.courses.wp.finalexam_wp;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -106,7 +113,19 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
+            JFrame frame=new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             
+            JButton bt=new JButton("Click");
+            bt.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame,"Hello");
+                }
+            });
+            frame.add(bt);
+            frame.setSize(500,500);
+            frame.setVisible(true);
             ////////////////////
             return;
         }
@@ -114,7 +133,20 @@ public class Main extends javax.swing.JFrame {
         model.addElement(title);
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
-        
+            JFrame frame=new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+            
+            JDesktopPane desktop=new JDesktopPane();
+            frame.setContentPane(desktop);
+            
+            JInternalFrame iframe=new JInternalFrame("internal",true,true,true,true);
+            frame.getContentPane().add(iframe);
+            iframe.setSize(300,300);
+            iframe.setVisible(true);
+            
+            iframe.setSize(500,500);
+            iframe.setVisible(true);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,7 +165,20 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
+            JFrame frame=new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
             
+            JDesktopPane desktop=new JDesktopPane();
+            frame.setContentPane(desktop);
+            
+            JInternalFrame iframe=new JInternalFrame("internal",true,true,true,true);
+            frame.getContentPane().add(iframe);
+            iframe.setSize(300,300);
+            iframe.setVisible(true);
+            
+            iframe.setSize(500,500);
+            iframe.setVisible(true);
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
